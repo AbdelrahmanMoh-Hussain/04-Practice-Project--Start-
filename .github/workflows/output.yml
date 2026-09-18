@@ -1,0 +1,11 @@
+name: Echo output workflow 
+on:
+    workflow_dispatch:
+    issues:
+        types: [opened, edited, milestoned]
+jobs:
+    output:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo issue title
+            run: echo "Issue title: ${{ github.event.issue.title }}"
