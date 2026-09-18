@@ -34,7 +34,7 @@ jobs:
 
             - name: Run tests
               run: npm test
-              
+
     build:
         runs-on: ubuntu-latest
         steps:
@@ -53,6 +53,7 @@ jobs:
               run: npm run build
 
     deploy:
+        needs: [test, build]
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
